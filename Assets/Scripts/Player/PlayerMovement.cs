@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetAxisRaw("Jump") != 0 && !isJumping) {
             Debug.Log("Jumping");
             isJumping = true;
-            transform.GetComponent<Rigidbody>().AddForce(Input.GetAxisRaw("Jump") * 1000 * Time.deltaTime * transform.up, ForceMode.Impulse);
+            transform.GetComponent<Rigidbody>().AddForce(Input.GetAxisRaw("Jump") * 400 * Time.deltaTime * transform.up, ForceMode.Impulse);
         }
         
     }
