@@ -17,10 +17,10 @@ public class Resettable : MonoBehaviour
     private void OnTriggerEnter(Collider col) {
         if(col.gameObject == objectToReset) {
             if(col.gameObject.tag == "Player") {
-                AudioManager._instance.PlayResetSound();
+                AudioManager._instance.PlayResetSound(transform.GetComponent<AudioSource>());
                 objectToReset.transform.position = playerLevel2Position;
             } else {
-                AudioManager._instance.PlayResetSound();
+                AudioManager._instance.PlayResetSound(transform.GetComponent<AudioSource>());
                 objectToReset.transform.position = objectResetPosition;
             }
         }

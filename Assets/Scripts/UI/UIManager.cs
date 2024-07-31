@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 
     void Awake() {
         if(_instance != null && _instance != this) {Destroy(this);}else{_instance = this;}
+        Debug.Log("UIManager initiated");
     }
 
     void Start()

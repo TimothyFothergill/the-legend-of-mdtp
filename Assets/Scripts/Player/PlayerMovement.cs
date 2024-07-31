@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake() {
         if(_instance != null && _instance != this) {Destroy(this);}else{_instance = this;}
+        Debug.Log("PlayerMovement initiated");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

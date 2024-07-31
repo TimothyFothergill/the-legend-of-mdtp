@@ -54,9 +54,9 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayGameCredits()   => source.clip = creditsMusic;
-    public void PlayResetSound()    => source.clip = resetSound;
-    public void PlayDramaticSound() => source.clip = dramaticSound;
-    public void PlayFanfareSound()  => source.clip = fanfareSound;
+    public void PlayResetSound(AudioSource resetSource)    => source.clip = resetSound;
+    public void PlayDramaticSound(AudioSource dramaSource) => dramaSource.Play();
+    public void PlayFanfareSound(AudioSource fanfareSource)=> fanfareSource.Play();
     public void PlayGameMusic()     => source.clip = gameMusic;
     public void PlayDoorOpenSound(AudioSource doorSource) => doorSource.Play();
     

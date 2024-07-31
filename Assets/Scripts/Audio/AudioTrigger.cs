@@ -7,7 +7,7 @@ public class AudioTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Player" && !hasPlayed) {
             hasPlayed = true;
-            AudioManager._instance.PlayFanfareSound();
+            AudioManager._instance.PlayFanfareSound(transform.GetComponent<AudioSource>());
         }
     }
 }

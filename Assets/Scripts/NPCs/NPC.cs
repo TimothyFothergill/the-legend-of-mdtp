@@ -8,6 +8,7 @@ public class NPC : MonoBehaviour
     [SerializeField] List<GameObject> objectiveGameObjects;
     bool objectiveComplete = false;
     public bool initialTalk = false;
+    public bool dramaticSound = false;
     public string firstDialogue;
     public string secondDialogue;
     public string iconPath;
@@ -41,9 +42,7 @@ public class NPC : MonoBehaviour
                         var objective = obj.GetComponent<IObjective>();
                         if(objective.GetStatus && !objectiveComplete) {
                             objectiveComplete = true;
-                            string characterToUpdate = character.ToString() + "_COMPLETE";
                             PlayerMovement._instance.ToggleTalking(true);
-                            // int updatedChar = (int)System.Enum.Parse(typeof(NPCharacter), characterToUpdate);
                             UIManager._instance.ToggleDialogueInteractive(active: true, textToDisplay: ActiveNPC._instance.active.secondDialogue, imageToDisplay: ActiveNPC._instance.active.iconPath);
                         } else {
                             PlayerMovement._instance.ToggleTalking(true);
@@ -54,6 +53,7 @@ public class NPC : MonoBehaviour
                     PlayerMovement._instance.ToggleTalking(true);
                     UIManager._instance.ToggleDialogueInteractive(active: true, textToDisplay: ActiveNPC._instance.active.firstDialogue, imageToDisplay: ActiveNPC._instance.active.iconPath);
                 }
+                if(dramaticSound) {AudioManager._instance.PlayDramaticSound(GetComponent<AudioSource>());}
             }
         }
     }
